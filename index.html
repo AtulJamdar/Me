@@ -226,12 +226,34 @@
 <section id="contact">
     <h2>Contact Me</h2>
     <span class="subtitle">Get in touch</span>
-    <div class="contact-container">
-        <form class="contact-form" id="contact-form">
-            <input type="text" name="from_name" placeholder="Full Name" required>
-            <input type="email" name="reply_to" placeholder="Email Address" required>
-            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit" id="submit-btn">Send Message</button>
+
+    <div class="contact-container" style="max-width: 600px; margin: auto; text-align: center;">
+
+        <div class="contact-details" style="margin-bottom: 30px;">
+            <p style="color: var(--muted); margin-bottom: 15px;">
+                I'm always open to discussing new opportunities, collaborations, or algorithmic challenges!
+            </p>
+            <div style="display: inline-flex; align-items: center; gap: 10px; background: var(--card); padding: 12px 25px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.1);">
+                <i class="fas fa-envelope" style="color: var(--accent);"></i>
+                <a href="mailto:work.atuljamdar@gmail.com" style="color: var(--text); text-decoration: none; font-weight: 500;">
+                    work.atuljamdar@gmail.com
+                </a>
+            </div>
+            <br/>
+            <br/>
+            <p style="color: var(--muted); margin-bottom: 15px;">
+                I usually respond within 24 hours.
+            </p>
+
+        </div>
+
+        <form class="contact-form" id="contact-form" style="display: flex; flex-direction: column; gap: 15px;">
+            <input type="text" name="from_name" placeholder="Full Name" required style="background: var(--card); border: 1px solid #2a3352; padding: 15px; border-radius: 10px; color: white;">
+            <input type="email" name="reply_to" placeholder="Email Address" required style="background: var(--card); border: 1px solid #2a3352; padding: 15px; border-radius: 10px; color: white;">
+            <textarea name="message" rows="5" placeholder="Your Message" required style="background: var(--card); border: 1px solid #2a3352; padding: 15px; border-radius: 10px; color: white;"></textarea>
+            <button type="submit" id="submit-btn" style="background: var(--accent); color: white; padding: 15px; border: none; border-radius: 10px; cursor: pointer; font-weight: bold;">
+                Send Message
+            </button>
         </form>
     </div>
 </section>

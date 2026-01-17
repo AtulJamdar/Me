@@ -16,6 +16,18 @@
     --nav-bg: rgba(255, 255, 255, 0.9);
 }
 
+/* --- GLOBAL BUTTON HOVER EFFECTS --- */
+button, .btn-sm, .leetcode-proof-card a {
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Lightly move right (10px) on hover */
+button:hover, .btn-sm:hover, .leetcode-proof-card a:hover {
+    filter: brightness(1.1);
+    box-shadow: 5px 5px 15px rgba(91, 108, 255, 0.2);
+}
+
 /* --- MOBILE NAVIGATION --- */
 .menu-btn {
     display: none;
