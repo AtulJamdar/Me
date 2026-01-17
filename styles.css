@@ -119,8 +119,7 @@ button:hover, .btn-sm:hover, .leetcode-proof-card a:hover {
         }
 
         /*-- Profile Picture ---- */
-        /* --- PREMIUM DUAL-RING ANIMATED FRAME --- */
-/* --- ORGANIC STEADY FRAME --- */
+ /* --- ORGANIC STEADY FRAME (Standard Size) --- */
 .profile-wrapper {
     position: relative;
     width: 350px;
@@ -131,33 +130,48 @@ button:hover, .btn-sm:hover, .leetcode-proof-card a:hover {
     margin: auto;
 }
 
-/* Steady background color layer rotated 25 degrees */
 .profile-wrapper::before {
     content: '';
     position: absolute;
     width: 280px;
     height: 280px;
-    background-color: var(--accent); /* Uses your primary blue color */
-    /* Creating the specific organic blob shape from your image */
+    background-color: var(--accent);
     border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-    transform: rotate(25deg); /* Rotated 25 degrees as requested */
+    transform: rotate(25deg);
     z-index: 1;
+    transition: var(--transition);
 }
 
-/* The frame holding your steady picture */
 .unique-frame {
     position: relative;
     width: 270px;
     height: 270px;
     background: var(--accent);
-    /* Matches the organic shape to fit perfectly inside the blue frame */
     border-radius: 0% 60% 70% 30% / 40% 50% 60% 50%;
     z-index: 2;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: var(--transition);
+}
 
+/* --- BIGGER SIZE FOR DESKTOP (Screens > 1024px) --- */
+@media (min-width: 1024px) {
+    .profile-wrapper {
+        width: 500px;  /* Increased wrapper size */
+        height: 500px;
+    }
+
+    .profile-wrapper::before {
+        width: 420px;  /* Increased blue background size */
+        height: 420px;
+    }
+
+    .unique-frame {
+        width: 400px;  /* Increased image frame size */
+        height: 400px;
+    }
 }
 
 .unique-frame img {
@@ -167,7 +181,6 @@ button:hover, .btn-sm:hover, .leetcode-proof-card a:hover {
     display: block;
     position: relative;
 }
-
         /*-- Profile Picture ---- */
 
         /* --- RESPONSIVE ABOUT SECTION --- */
