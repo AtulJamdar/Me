@@ -1,0 +1,231 @@
+:root {
+    --transition: 0.3s ease;
+            --bg: #0b1020;
+    --card: #141a33;
+    --accent: #5b6cff;
+    --text: #ffffff;
+    --muted: #b6b9d6;
+    --nav-bg: rgba(11, 16, 32, 0.9);
+        }
+
+        [data-theme="light"] {
+    --bg: #f0f2f5;
+    --card: #ffffff;
+    --text: #5b6cff;
+    --muted: #606770;
+    --nav-bg: rgba(255, 255, 255, 0.9);
+}
+
+/* --- MOBILE NAVIGATION --- */
+.menu-btn {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text);
+}
+
+@media (max-width: 768px) {
+    .menu-btn { display: block; }
+
+    nav ul {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        background: var(--nav-bg);
+        width: 100%;
+        text-align: center;
+        transition: 0.4s;
+        padding: 20px 0;
+        backdrop-filter: blur(10px);
+    }
+
+    nav ul.active { left: 0; }
+
+    .home {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 120px;
+    }
+
+    .profile-wrapper {
+        width: 280px;
+        height: 280px;
+        margin-bottom: 30px;
+    }
+
+    .about-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline::before { left: 20px; }
+    .timeline-item { width: 100%; padding-left: 50px; text-align: left; }
+    .right { left: 0; }
+}
+
+/* --- THEME TOGGLE STYLE --- */
+.theme-switch {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--accent);
+    padding: 0 10px;
+}
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed; top: 0; width: 100%; height: 70px;
+            background: rgba(11, 16, 32, 0.9); backdrop-filter: blur(10px);
+            display: flex; justify-content: space-around; align-items: center; z-index: 1000;
+        }
+        nav .logo a { font-family: 'Courier New', monospace; /* code-like font */ font-size: 1.5rem; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; }
+        .logo .tag { color: var(--accent); /* green for angle brackets */ }
+        .logo .name { color: var(--accent); /* orange for your name */ }
+        nav ul { display: flex; list-style: none; gap: 25px; }
+        nav a { text-decoration: none; color: var(--text); font-weight: 500; transition: var(--transition); }
+        nav a:hover { color: var(--accent); }
+
+        section { padding: 100px 10%; min-height: 100vh; }
+        h2 { font-size: 2.5rem; text-align: center; margin-bottom: 10px; }
+        .subtitle { text-align: center; color: var(--muted); margin-bottom: 50px; display: block; }
+
+        /* --- HOME SECTION & UNIQUE FRAME --- */
+        .home { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+        .home-text h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .home-text h3 { color: var(--muted); font-size: 1.5rem; margin-bottom: 20px; }
+
+        .unique-frame {
+            position: relative;
+            width: 320px; height: 320px;
+            background: var(--accent);
+            /* Unique Hexagonal Diamond Shape */
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 5% 25%);
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        /*-- Profile Picture ---- */
+        /* --- PREMIUM DUAL-RING ANIMATED FRAME --- */
+/* --- ORGANIC STEADY FRAME --- */
+.profile-wrapper {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+/* Steady background color layer rotated 25 degrees */
+.profile-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background-color: var(--accent); /* Uses your primary blue color */
+    /* Creating the specific organic blob shape from your image */
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    transform: rotate(25deg); /* Rotated 25 degrees as requested */
+    z-index: 1;
+}
+
+/* The frame holding your steady picture */
+.unique-frame {
+    position: relative;
+    width: 270px;
+    height: 270px;
+    background: var(--accent);
+    /* Matches the organic shape to fit perfectly inside the blue frame */
+    border-radius: 0% 60% 70% 30% / 40% 50% 60% 50%;
+    z-index: 2;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.unique-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+}
+
+        /*-- Profile Picture ---- */
+
+        /* --- RESPONSIVE ABOUT SECTION --- */
+@media (max-width: 768px) {
+    /* Targets the container holding both cards */
+    section#about .about-wrapper {
+        grid-template-columns: 1fr !important; /* Forces single column stacking */
+        gap: 20px; /* Reduces space between stacked cards for mobile */
+    }
+
+    /* Adjusts the info card padding for smaller screens */
+    .about-info-card {
+        padding: 25px !important;
+    }
+
+    /* Adjusts the LeetCode card padding for smaller screens */
+    .leetcode-proof-card {
+        padding: 30px 20px !important;
+    }
+}
+
+        /* --- SKILLS SECTION --- */
+        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .skill-card { background: var(--card); padding: 25px; border-radius: 15px; border-bottom: 3px solid transparent; transition: border-color var(--transition), transform var(--transition); }
+        .skill-card:hover { border-color: var(--accent); transform: translateY(-5px);  }
+        .skill-card h3 { color: var(--accent); margin-bottom: 15px; }
+        .skill-list { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-tag { background: rgba(91, 108, 255, 0.1); padding: 5px 15px; border-radius: 5px; font-size: 0.9rem; }
+
+        /* --- PROJECTS SECTION --- */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .project-card { background: var(--card); border-radius: 20px; overflow: hidden; transition: var(--transition); }
+        .project-card:hover { transform: scale(1.02); }
+        .project-info { padding: 25px; }
+        .project-info h3 { margin-bottom: 10px; color: var(--accent); }
+        .project-info p { font-size: 0.9rem; color: var(--muted); margin-bottom: 20px; }
+        .project-links { display: flex; gap: 15px; }
+
+        /* --- QUALIFICATION --- */
+        .timeline { max-width: 800px; margin: auto; position: relative; }
+        .timeline::before { content: ''; position: absolute; left: 50%; width: 2px; height: 100%; background: var(--accent); }
+        .timeline-item { width: 50%; padding: 20px; position: relative; }
+        .left { left: 0; text-align: right; }
+        .right { left: 50%; text-align: left; }
+        .timeline-content { background: var(--card); padding: 20px; border-radius: 10px; }
+
+        /* --- CONTACT SECTION --- */
+        .contact-container { max-width: 600px; margin: auto; }
+        .contact-form { display: flex; flex-direction: column; gap: 15px; }
+        input, textarea { background: var(--card); border: 1px solid #2a3352; padding: 15px; border-radius: 10px; color: white; }
+        button { background: var(--accent); color: white; padding: 15px; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; }
+
+        /* --- FOOTER --- */
+/* Ensure these styles are in your CSS to make the icons turn blue on hover */
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-icon {
+    color: #ffffff; /* Default white color */
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.social-icon:hover {
+    color: #5b6cff; /* Changes to your specific blue accent color */
+    transform: translateY(-5px); /* Gentle float up effect */
+    filter: drop-shadow(0 0 8px #5b6cff); /* Blue neon glow */
+}
