@@ -34,3 +34,29 @@ themeToggle.addEventListener('click', () => {
         localStorage.setItem('theme', 'light');
     }
 });
+
+(function() {
+    // Replace with your actual Public Key from EmailJS Account
+    emailjs.init("szw956OP0vcSvQMoX");
+})();
+
+window.onload = function() {
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const btn = document.getElementById('submit-btn');
+        btn.innerText = 'Sending...';
+
+        // serviceID, templateID, #formID
+        emailjs.sendForm('service_m25m2lm', 'template_f7lh28d', this)
+            .then(function() {
+                alert('Message Sent Successfully!');
+                btn.innerText = 'Send Message';
+                document.getElementById('contact-form').reset();
+            }, function(error) {
+                alert('Failed to send message. Please try again later.');
+                btn.innerText = 'Send Message';
+                console.log('FAILED...', error);
+            });
+    });
+}
